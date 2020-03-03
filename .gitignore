@@ -1,0 +1,36 @@
+.DS_Store
+node_modules
+/dist
+
+# local env files
+.env.local
+.env.*.local
+
+# Log files
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Editor directories and files
+.idea
+.vscode
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+package-lock.json
+.editorconfig
+webserver/.babelrc
+webserver/.env.example
+webserver/.gitignore
+webserver/package.json
+webserver/Procfile
+webserver/__mocks__/relations.json
+webserver/__mocks__/series.json
+webserver/__mocks__/users.json
+webserver/src/app.js
+webserver/src/controllers/AuthController.js
+webserver/src/routes.js
+webserver/src/controllers/SeriesController.js
+webserver/src/controllers/UsersController.js
