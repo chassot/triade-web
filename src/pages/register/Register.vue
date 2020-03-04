@@ -58,11 +58,11 @@ export default {
         await this.ActionRegisterUser(this.form);
       } catch (err) {
         alert(err);
-        alert(err.data ? err.data.message : "Não foi possível fazer login");
+        alert(err.data ? err.data.message : "Não foi possível fazer login")
       }
     }
   }
-};
+}
 </script>
 
 <style lang="scss" scoped>

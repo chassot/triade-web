@@ -5,9 +5,11 @@ import * as types from './mutation-types'
 export const ActionDoLogin = ({ dispatch }, payload) => {
   console.log(payload);
   return services.auth.login(payload).then(res => {
-    dispatch('ActionSetUser', res.data.user)
-    dispatch('ActionSetToken', res.data.token)
     dispatch('ActionSetMsg', res.data.msg)
+    if(res.data.user){
+      dispatch('ActionSetUser', res.data.user)
+      dispatch('ActionSetToken', res.data.token)      
+    }
   })
 }
 
@@ -24,6 +26,12 @@ export const ActionCheckToken = ({ dispatch, state }) => {
 
   dispatch('ActionSetToken', token)
   return dispatch('ActionLoadSession')
+}
+
+export const ActionRegisterUser = ({ dispatch }, payload) => {
+  return services.auth.registerUser(payload).then(res => {    
+    dispatch('ActionDoLogin', {'uid':res.data.user.username, 'secret':res.data.user.password})
+  })
 }
 
 export const ActionLoadSession = ({ dispatch }) => {
@@ -49,7 +57,7 @@ export const ActionSetToken = ({ commit }, payload) => {
   commit(types.SET_TOKEN, payload)
 }
 
-export const ActionSetMsg = ({commit}, payload) => {
+export const ActionSetMsg = ({ commit }, payload) => {
   commit(types.SET_MSG, payload)
 }
 

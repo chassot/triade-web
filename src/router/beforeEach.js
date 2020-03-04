@@ -1,7 +1,7 @@
 import store from '../store'
 
 export default async (to, from, next) => {
-  document.title = `${to.name} - Series Wished`
+  document.title = `Tríade`
 
   if (to.name !== 'login' && to.name !== 'register' && !store.getters['auth/hasToken']) {
     try {
